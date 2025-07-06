@@ -556,6 +556,10 @@ nav #menu-open-button {
   color: #ff5757;
 }
 
+.policy-text:hover {
+  color: #ff5757;
+}
+
 .policy-text {
   margin-top: 10px;
   font-size: 12px;
