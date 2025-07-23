@@ -328,9 +328,12 @@ nav #menu-open-button {
 }
 
 .service-box h3 {
-  font-size: 20px;
+  font-size: 18px;
   color: #ff5757;
   margin-bottom: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .service-box ul {
@@ -935,8 +938,3 @@ grid-template-columns: 1fr;
     font-size: 16px;
 }
 }
-
-
-
-
-
