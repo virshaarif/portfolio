@@ -30,30 +30,37 @@
 
  const navMenu = document.getElementById("nav-menu");
 
- menuOpenButton.addEventListener("click", () => {
-     navMenu.style.left = "0";
- });
+ if (menuOpenButton && navMenu) {
+     menuOpenButton.addEventListener("click", () => {
+         navMenu.style.left = "0";
+     });
+ }
+ if (menuCloseButton && navMenu) {
+     menuCloseButton.addEventListener("click", () => {
+         navMenu.style.left = "-350px";
+     });
+ }
 
- menuCloseButton.addEventListener("click", () => {
-     navMenu.style.left = "-350px";
- });
 
 
-
- const navLinks = navMenu.querySelectorAll(".nav-links");
+ if (navMenu) {
+    const navLinks = navMenu.querySelectorAll(".nav-links");
     navLinks.forEach(link => {
       link.addEventListener("click", () => {
         navMenu.style.left = "-350px";
       });
     });
+ }
 
 
   const scriptURL = 'https://script.google.com/macros/s/AKfycbymi4Wa74g9k6LHMJiGr8erQsffMwkLo8nhyg_Pr7-wlDHNaqA52o8AZsifqnrVoc_R/exec'
   const form = document.forms['submit-to-google-sheet']
 
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  }
