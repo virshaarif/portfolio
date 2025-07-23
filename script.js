@@ -33,11 +33,13 @@
  if (menuOpenButton && navMenu) {
      menuOpenButton.addEventListener("click", () => {
          navMenu.style.left = "0";
+         document.body.classList.add("menu-open");
      });
  }
  if (menuCloseButton && navMenu) {
      menuCloseButton.addEventListener("click", () => {
          navMenu.style.left = "-350px";
+         document.body.classList.remove("menu-open");
      });
  }
 
@@ -48,6 +50,7 @@
     navLinks.forEach(link => {
       link.addEventListener("click", () => {
         navMenu.style.left = "-350px";
+        document.body.classList.remove("menu-open");
       });
     });
  }
