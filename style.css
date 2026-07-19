@@ -107,13 +107,13 @@ nav #menu-open-button {
 .front-img{
     margin-top: 5%;
     background-color:transparent;
-     background-image: url(assets/about__me_img-removebg-preview.png);
+     background-image: url(assets/Me.jpeg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; 
     width: 300px;
     height: 300px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     margin-right: 30px;
     /* box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18); */
     transition: 
@@ -123,13 +123,13 @@ nav #menu-open-button {
     cursor: pointer;
     filter: brightness(0.98) saturate(0.96);
 }
-.front-img.active,
+/* .front-img.active,
 .front-img:active,
 .front-img:hover {
     box-shadow: 0 8px 40px 0 #ff5757cc, 0 2px 8px 0 rgba(0,0,0,0.12);
     transform: scale(1.045) translateY(-4px);
     filter: brightness(1.03) saturate(1.05);
-}
+} */
 
 
   
@@ -1209,4 +1209,68 @@ html, body {
     max-width: 250px !important;
     left: 0 !important;
   }
+}
+.experience-section,
+.certificates-section{
+    padding:80px 20px;
+    background:#121212;
+    color:#fff;
+}
+
+.experience-card,
+.certificate-card{
+    background:#1d1d1d;
+    border-left:4px solid #ff5757;
+    border-radius:12px;
+    padding:25px;
+    margin:20px auto;
+    max-width:900px;
+    transition:.3s;
+}
+
+.experience-card:hover,
+.certificate-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 20px rgba(255,87,87,.2);
+}
+
+.experience-card h3,
+.certificate-card h3{
+    color:#ff5757;
+    margin-bottom:8px;
+}
+
+.experience-card span{
+    color:#bfbfbf;
+    font-size:15px;
+}
+
+.experience-card p{
+    margin-top:15px;
+    color:#ddd;
+    line-height:1.7;
+}
+
+.certificate-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.certificate-card{
+    text-align:center;
+}
+
+.certificate-card i{
+    font-size:40px;
+    color:#ff5757;
+    margin-bottom:15px;
+}
+
+.certificate-card p{
+    color:#bbb;
+}
+.section-title{
+  text-align: center;
 }
