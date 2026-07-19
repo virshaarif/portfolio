@@ -14,7 +14,9 @@ body{
 }
 #header{
     width: 100%;
-    height: 100vh;
+  min-height: 100vh;
+  height: auto;
+  padding-bottom: 72px;
 }
 nav{
     display: flex;
@@ -63,6 +65,7 @@ nav #menu-open-button {
     font-size: 30px;
     padding: 10px;
     animation: fadeInUp 1s ease;
+  max-width: 620px;
 }
 .header-text h1{
     line-height: 1.4;
@@ -82,9 +85,18 @@ nav #menu-open-button {
     animation: fadeIn 1.2s 0.2s both;
 }
 .header-text h1{
-    font-size: 60px;
+    font-size: 50px;
     margin-top: 20px;
     animation: fadeIn 1.2s 0.4s both;
+}
+.header-text h2{
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #d7d7d7;
+  font-weight: 400;
+  max-width: 560px;
+  animation: fadeIn 1.2s 0.55s both;
 }
 .header-text h1 span{
     color: #ff5757;
@@ -102,34 +114,82 @@ nav #menu-open-button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 5%;
+    margin-top: 2%;
+  gap: 60px;
 }
 .front-img{
-    margin-top: 5%;
-    background-color:transparent;
-     background-image: url(assets/Me.jpeg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; 
-    width: 300px;
-    height: 300px;
-    /* border-radius: 50%; */
-    margin-right: 30px;
-    /* box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18); */
-    transition: 
-        box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
-        transform 0.4s cubic-bezier(0.4,0,0.2,1),
-        filter 0.4s cubic-bezier(0.4,0,0.2,1);
-    cursor: pointer;
-    filter: brightness(0.98) saturate(0.96);
+  margin-top: 5%;
+  width: 340px;
+  flex: 0 0 340px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+  transition: 
+    box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
+    transform 0.4s cubic-bezier(0.4,0,0.2,1),
+    filter 0.4s cubic-bezier(0.4,0,0.2,1);
+  cursor: pointer;
+  filter: brightness(0.98) saturate(0.96);
 }
-/* .front-img.active,
-.front-img:active,
-.front-img:hover {
-    box-shadow: 0 8px 40px 0 #ff5757cc, 0 2px 8px 0 rgba(0,0,0,0.12);
-    transform: scale(1.045) translateY(-4px);
-    filter: brightness(1.03) saturate(1.05);
+.hero-image::before,
+.hero-image::after{
+  content: "";
+  position: absolute;
+  inset: auto;
+  border-radius: 50%;
+  filter: blur(10px);
+  z-index: -1;
+}
+/* .hero-image::before{
+  width: 180px;
+  height: 180px;
+  background: rgba(255, 87, 87, 0.28);
+  top: -20px;
+  right: -10px;
+}
+.hero-image::after{
+  width: 140px;
+  height: 140px;
+  background: rgba(255, 255, 255, 0.08);
+  left: -15px;
+  bottom: 0;
 } */
+.hero-image-frame{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 14px;
+  border-radius: 28px;
+  /* background: linear-gradient(145deg, rgba(255,87,87,0.38), rgba(255,255,255,0.06));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(255,255,255,0.08) inset; */
+  /* backdrop-filter: blur(12px); */
+}
+.hero-image-frame img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.hero-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+.hero-btn,
+.hero-btn-outline{
+  padding: 14px 22px;
+  font-size: 15px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+
 
 
   
@@ -137,7 +197,7 @@ nav #menu-open-button {
   /* css for final about */
  
 .about-me {
-  padding: 80px 20px;
+  padding: 120px 20px 80px;
   background: #000000;
 }
 
@@ -1273,4 +1333,61 @@ html, body {
 }
 .section-title{
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .section {
+    gap: 24px;
+  }
+
+  .header-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .header-text h2 {
+    margin: 14px auto 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .front-img.hero-image {
+    width: min(78vw, 280px);
+    flex: 0 0 auto;
+    margin-right: 0;
+    margin-top: 10px;
+    height: auto;
+  }
+
+  .hero-badge {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+
+  .hero-badge-top {
+    left: -4px;
+  }
+
+  .hero-badge-bottom {
+    right: -8px;
+  }
+}
+
+@media (max-width: 430px) {
+  .header-text h2 {
+    font-size: 14px;
+  }
+
+  .hero-actions {
+    gap: 10px;
+  }
+
+  .front-img.hero-image {
+    width: min(84vw, 240px);
+    height: auto;
+  }
 }
