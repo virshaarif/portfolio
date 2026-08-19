@@ -236,6 +236,87 @@
     reveals.forEach((el) => io.observe(el));
   }
 
+  function mailtoFromForm(form) {
+    const name = form.elements.name.value.trim();
+    const email = form.elements.email.value.trim();
+    const subject = encodeURIComponent(form.elements.subject.value.trim());
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${form.elements.message.value.trim()}`);
+    return `mailto:virshaarif59@gmail.com?subject=${subject}&body=${body}`;
+  }
+
+  function openMailto(url) {
+    const a = document.createElement("a");
+    a.href = url;
+    a.rel = "noopener";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  async function parseJsonResponse(res) {
+    const type = (res.headers.get("content-type") || "").toLowerCase();
+    if (!type.includes("application/json")) return null;
+    try {
+      return await res.json();
+    } catch (_) {
+      return null;
+    }
+  }
+
+  async function sendViaPhp(payload) {
+    const ctrl = new AbortController();
+    const timer = window.setTimeout(() => ctrl.abort(), 10000);
+    try {
+      const res = await fetch("contact.php", {
+        method: "POST",
+        body: payload,
+        headers: { Accept: "application/json", "X-Requested-With": "XMLHttpRequest" },
+        signal: ctrl.signal,
+      });
+      const data = await parseJsonResponse(res);
+      if (!data) return { kind: "skip" };
+      if (res.ok && data.ok) return { kind: "ok", message: data.message };
+      if (res.status === 422) return { kind: "invalid", message: data.message };
+      return { kind: "skip" };
+    } catch (_) {
+      return { kind: "skip" };
+    } finally {
+      window.clearTimeout(timer);
+    }
+  }
+
+  async function sendViaFormSubmit(fields) {
+    const ctrl = new AbortController();
+    const timer = window.setTimeout(() => ctrl.abort(), 12000);
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/virshaarif59@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: fields.name,
+          email: fields.email,
+          _replyto: fields.email,
+          _subject: `[Virsha Arif Portfolio] ${fields.subject}`,
+          message: fields.message,
+          _template: "table",
+          _captcha: "false",
+        }),
+        signal: ctrl.signal,
+      });
+      const data = await parseJsonResponse(res);
+      const ok = Boolean(data) && res.ok && (data.success === true || data.success === "true");
+      if (!ok) return { kind: "skip" };
+      return { kind: "ok", message: data.message || "Message received. I’ll get back to you shortly." };
+    } catch (_) {
+      return { kind: "skip" };
+    } finally {
+      window.clearTimeout(timer);
+    }
+  }
+
   function initForm() {
     const form = document.getElementById("contact-form");
     if (!form) return;
@@ -268,6 +349,19 @@
       return ok;
     };
 
+    const setStatus = (msg, type) => {
+      if (!status) return;
+      status.textContent = msg;
+      status.className = type ? `form-status is-${type}` : "form-status";
+    };
+
+    const succeed = (detail) => {
+      form.reset();
+      Object.keys(rules).forEach((key) => showError(key, ""));
+      setStatus(detail, "ok");
+      showToast("Message sent", detail || "I’ll get back to you shortly.");
+    };
+
     Object.keys(rules).forEach((key) => {
       form.elements[key]?.addEventListener("blur", () => {
         const value = String(form.elements[key].value || "").trim();
@@ -277,75 +371,64 @@
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      if (status) {
-        status.textContent = "";
-        status.className = "form-status";
-      }
+      setStatus("");
       if (!validate()) {
-        if (status) {
-          status.textContent = "Please correct the highlighted fields.";
-          status.classList.add("is-err");
-        }
+        setStatus("Please correct the highlighted fields.", "err");
         showToast("Check the form", "Please correct the highlighted fields.", "err");
+        return;
+      }
+
+      if (String(form.elements.website?.value || "").trim()) {
+        succeed("Message received. I’ll get back to you shortly.");
         return;
       }
 
       submit.disabled = true;
       const original = submit.textContent;
       submit.textContent = "Sending…";
-      const payload = new FormData(form);
+
+      const fields = {
+        name: String(form.elements.name.value || "").trim(),
+        email: String(form.elements.email.value || "").trim(),
+        subject: String(form.elements.subject.value || "").trim(),
+        message: String(form.elements.message.value || "").trim(),
+      };
 
       try {
-        const res = await fetch("contact.php", {
-          method: "POST",
-          body: payload,
-          headers: { Accept: "application/json", "X-Requested-With": "XMLHttpRequest" },
-        });
-        let data = {};
-        try {
-          data = await res.json();
-        } catch (_) {
-          data = {};
-        }
-        if (res.ok && data.ok) {
-          form.reset();
-          Object.keys(rules).forEach((key) => showError(key, ""));
-          if (status) {
-            status.textContent = data.message || "Message received. I’ll get back to you shortly.";
-            status.classList.add("is-ok");
-          }
-          showToast("Message sent", data.message || "I’ll get back to you shortly.");
-        } else if (res.status === 404 || res.status === 405) {
-          window.location.href = mailtoFromForm(form);
-        } else {
-          throw new Error(data.message || "Could not send just now.");
-        }
-      } catch (err) {
-        if (err instanceof TypeError) {
-          window.location.href = mailtoFromForm(form);
+        const php = await sendViaPhp(new FormData(form));
+        if (php.kind === "ok") {
+          succeed(php.message);
           return;
         }
-        if (status) {
-          status.textContent = err.message || "Something went wrong. Try email instead.";
-          status.classList.add("is-err");
+        if (php.kind === "invalid") {
+          setStatus(php.message || "Please check your details and try again.", "err");
+          showToast("Couldn’t send", php.message || "Please check your details and try again.", "err");
+          return;
         }
+
+        const remote = await sendViaFormSubmit(fields);
+        if (remote.kind === "ok") {
+          const confirmFirst = /confirm|activate|activation/i.test(remote.message || "");
+          if (confirmFirst) {
+            setStatus("Check the inbox to activate message delivery, then send again.", "ok");
+            showToast("Confirm delivery", "A confirmation email was sent to virshaarif59@gmail.com. Click it once, then submit again.");
+            return;
+          }
+          succeed(remote.message);
+          return;
+        }
+
+        openMailto(mailtoFromForm(form));
+        setStatus("Opening your email app to finish sending.", "ok");
+        showToast("Email app opened", "This host has no mail server, so your message is ready in your email client.");
+      } catch (err) {
+        setStatus(err.message || "Something went wrong. Try email instead.", "err");
         showToast("Couldn’t send", err.message || "Please try again or email me directly.", "err");
       } finally {
         submit.disabled = false;
         submit.textContent = original;
       }
     });
-  }
-
-  function mailtoFromForm(form) {
-    const name = encodeURIComponent(form.elements.name.value.trim());
-    const email = encodeURIComponent(form.elements.email.value.trim());
-    const subject = encodeURIComponent(form.elements.subject.value.trim());
-    const message = encodeURIComponent(form.elements.message.value.trim());
-    const body = encodeURIComponent(
-      `Name: ${decodeURIComponent(name)}\nEmail: ${decodeURIComponent(email)}\n\n${decodeURIComponent(message)}`
-    );
-    return `mailto:virshaarif59@gmail.com?subject=${subject}&body=${body}`;
   }
 
   document.addEventListener("DOMContentLoaded", () => {

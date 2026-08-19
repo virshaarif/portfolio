@@ -139,9 +139,9 @@ $_SESSION['contact_hits'] = $hits;
 
 if (!$sent) {
     respond(
-        true,
-        'Your note was saved. If you do not hear back, write directly to ' . RECIPIENT . '.',
-        200,
+        false,
+        'Mail service is unavailable on this host.',
+        503,
         $wantsJson
     );
 }
