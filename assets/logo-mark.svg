@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Virsha mark">
+  <rect width="64" height="64" rx="14" fill="#07090c"/>
+  <rect x="1.25" y="1.25" width="61.5" height="61.5" rx="13" fill="none" stroke="#7dd3fc" stroke-width="2.5"/>
+  <path d="M16 16 L32 50 L48 16" fill="none" stroke="#f4f8fb" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M32 50 L32 50" fill="none"/>
+  <path d="M40 16 L46 16" stroke="#7dd3fc" stroke-width="6" stroke-linecap="square"/>
+</svg>

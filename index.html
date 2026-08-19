@@ -1,363 +1,597 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virsha Arif | MERN Stack & Flutter Developer</title>
-<link rel="stylesheet" href="style.css">
-     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Virsha Arif — Software Engineer. Full-Stack Web & Mobile Developer. MERN, Flutter, REST APIs, Firebase. Kharian, Pakistan.">
+  <meta name="author" content="Virsha Arif">
+  <meta name="theme-color" content="#07090c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Virsha">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="msapplication-TileColor" content="#07090c">
+  <meta name="msapplication-TileImage" content="assets/favicon-192.png">
+  <title>Virsha Arif — Software Engineer</title>
+  <link rel="icon" href="assets/favicon.ico" sizes="48x48">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" as="image" href="assets/Me.jpeg">
+  <link rel="preload" as="image" href="assets/Me_2.jpeg">
+  <link rel="preload" as="image" href="assets/logo-mark.png">
+  <link rel="preload" as="image" href="assets/logo.png">
 </head>
 <body>
-     <div  id="header">
-        <div class="container">
-            <nav class="menu">
-                <img class="logo" src="assets/Add_a_heading-removebg-preview.png" alt="">
-                <button id="menu-open-button"><i class="fas fa-bars"></i></button>
-                <ul class="nav-menu" id="nav-menu">
-                         <button id="menu-close-button"><i class="fas fa-times"></i></button>  
-                            <li class="nav-links"><a href="#">Home</a></li>
-                      <li class="nav-links"><a href="#about">About</a></li>
-                          <li class="nav-links"><a href="#skills">Skills</a></li>
-                        <li class="nav-links"><a href="#services">Services</a></li>
-                          <li class="nav-links"><a href="#projects">Projects</a></li>
-                            <li class="nav-links"><a href="#contact">Contact</a></li>
-                            <!-- <li class="nav-links"><a href="#experience">Experience</a></li> -->
-<!-- <li class="nav-links"><a href="#projects">Projects</a></li>
-<li class="nav-links"><a href="#internship">Internship</a></li>
-<li class="nav-links"><a href="#certificates">Certificates</a></li> -->
-                </ul>
-            </nav>
-           <div class="section">
-             <div class="header-text">
-            <p>MERN & Flutter Developer</p>
-            <h1>Hey! I'm <span>Virsha Arif</span><br> From Pakistan</h1>
-            <h2>Designing modern web and mobile experiences with clean code, strong UI, and practical problem-solving.</h2>
-            <div class="hero-actions">
-              <a href="My%20Resume.pdf" class="btn hero-btn" download>Download CV</a>
-              <a href="#contact" class="btn-outline hero-btn-outline">Let's Connect</a>
-            </div>
-        </div>
-        <div class="front-img hero-image">
-          <div class="hero-image-frame">
-            <img src="assets/Me.jpeg" alt="Portrait of Virsha Arif" loading="eager">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="loader" id="loader" role="status" aria-live="polite" aria-label="Loading portfolio">
+    <div class="loader-inner">
+      <img class="loader-logo" src="assets/logo.png" width="220" height="220" alt="Virsha Arif">
+      <p class="loader-sub">software engineer · compiling</p>
+      <div class="loader-bar" aria-hidden="true">
+        <span class="loader-bar-fill" id="loader-bar"></span>
+      </div>
+      <p class="loader-pct" id="loader-pct">00</p>
+    </div>
+  </div>
+
+  <div class="progress-rail" aria-hidden="true">
+    <span class="progress-rail-fill" id="scroll-progress"></span>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="glass-nav" aria-label="Primary">
+      <a class="brand" href="#top" data-cursor="hover" aria-label="Virsha home">
+        <img class="brand-mark" src="assets/logo-mark.png" width="44" height="44" alt="Virsha Arif">
+        <span class="brand-type">
+          <span class="brand-name">Virsha</span>
+          <span class="brand-role">Software Engineer</span>
+        </span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-panel" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-panel nav-panel-desktop">
+        <ul class="nav-list">
+          <li><a href="#about" data-cursor="hover">About</a></li>
+          <li><a href="#experience" data-cursor="hover">Experience</a></li>
+          <li><a href="#work" data-cursor="hover">Work</a></li>
+          <li><a href="#capabilities" data-cursor="hover">Stack</a></li>
+          <li><a href="#contact" data-cursor="hover">Contact</a></li>
+        </ul>
+        <a class="nav-cta magnetic" href="#contact" data-cursor="hover">Hire me</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="nav-backdrop" id="nav-backdrop"></div>
+  <aside class="nav-drawer" id="nav-panel" aria-hidden="true" aria-label="Menu">
+    <div class="nav-drawer-head">
+      <p class="nav-drawer-kicker">Navigate</p>
+      <p class="nav-drawer-title">Portfolio</p>
+    </div>
+    <ul class="nav-list">
+      <li><a href="#about"><span class="nav-idx">01</span>About</a></li>
+      <li><a href="#experience"><span class="nav-idx">02</span>Experience</a></li>
+      <li><a href="#work"><span class="nav-idx">03</span>Work</a></li>
+      <li><a href="#capabilities"><span class="nav-idx">04</span>Stack</a></li>
+      <li><a href="#contact"><span class="nav-idx">05</span>Contact</a></li>
+    </ul>
+    <div class="nav-drawer-foot">
+      <a class="nav-cta" href="#contact">Hire me</a>
+      <div class="nav-drawer-meta">
+        <a href="mailto:virshaarif59@gmail.com">virshaarif59@gmail.com</a>
+        <p>Kharian, Pakistan</p>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main">
+    <section class="hero code-stage" id="top">
+      <div class="code-backdrop" aria-hidden="true"></div>
+      <div class="hero-atmosphere" aria-hidden="true"></div>
+
+      <div class="hero-ui">
+        <div class="hero-copy">
+          <p class="section-index reveal">[ 01 — init ]</p>
+          <p class="hero-kicker reveal">Software Engineer · Full-Stack &amp; Flutter</p>
+          <h1 class="hero-title">
+            Virsha
+            <span class="hero-title-last">Arif</span>
+          </h1>
+          <p class="hero-lead reveal">
+            I build production web apps on the MERN stack and cross-platform mobile apps in Flutter —
+            REST APIs, Firebase, clean architecture, 20+ shipped projects.
+          </p>
+          <div class="hero-meta reveal">
+            <span>Kharian, Pakistan</span>
+            <span class="dot"></span>
+            <span>Open to work</span>
+            <span class="dot"></span>
+            <span>On-site · Hybrid · Remote</span>
           </div>
-         
-        </div>
-        </div>
-        </div>
-       
-    </div> 
-  
-
-    <!-- ---------about------- -->
-   <section class="about-me " id="about">
-  <div class="about-wrapper">
-    <div class="about-img">
-      <img src="assets/Me_2.jpeg" alt="My Picture">
-    </div>
-    <div class="about-text">
-      <h2>About Me</h2>
-      <p>
-       <p>
-I'm <strong>Virsha Arif</strong>, a passionate Full Stack Developer specializing in the MERN Stack and Flutter. I enjoy building responsive, scalable, and user-friendly web and mobile applications with clean, maintainable code. With hands-on experience in React.js, Node.js, Express.js, MongoDB, Flutter, REST APIs, and Firebase, I'm committed to continuously learning new technologies and creating innovative digital solutions that deliver exceptional user experiences.
-</p>
-      </p>
-    </div>
-  </div>
-</section>
-<!-- -----skills--- -->
- <section class="skills-section"  id="skills">
-  <div class="skills-header">
-    <h2>My Skills</h2>
-    <p>Full Stack Technologies & Tools I Use</p>
-  </div>
-  <div class="skills-grid">
-    <div class="skill-box">
-  <span>💻</span>
-  <h3>MERN Stack</h3>
-  <p>Building full-stack web applications using MongoDB, Express.js, React.js, and Node.js.</p>
-</div>
-
-<div class="skill-box">
-  <span>📱</span>
-  <h3>Flutter</h3>
-  <p>Developing cross-platform mobile applications with responsive UI and clean architecture.</p>
-</div>
-
-<div class="skill-box">
-  <span>🔥</span>
-  <h3>Firebase</h3>
-  <p>Authentication, Firestore, Realtime Database, Storage, and Cloud Messaging integration.</p>
-</div>
-
-<div class="skill-box">
-  <span>🔌</span>
-  <h3>REST APIs</h3>
-  <p>Building and integrating RESTful APIs using HTTP, Provider, and MVVM architecture.</p>
-</div>
-<div class="skill-box">
-  <span>🛒</span>
-  <h3>Shopify</h3>
-  <p>Custom theme development, section customization, Liquid templates, and store setup.</p>
-</div>
-<div class="skill-box">
-  <span>🔧</span>
-  <h3>Git & GitHub</h3>
-  <p>Version control, collaboration, and source code management using Git workflows.</p>
-</div>
-  </div>
-</section>
-<!-- 
----projects--- -->
-<section id="experience" class="experience-section">
-  <h2 class="section-title">Experience</h2>
-
-  <div class="experience-card">
-    <h3>Flutter Developer</h3>
-    <span>Airafy Digitals • July 2025 – Present</span>
-
-    <p>
-      Developing cross-platform Flutter applications using Firebase,
-      REST APIs, Provider, and MVVM architecture while creating
-      responsive user interfaces and reusable components.
-    </p>
-  </div>
-
-  <div class="experience-card">
-    <h3>Mern Stack Intern</h3>
-    <span>UDevs • 2026</span>
-
-    <p>
-      <p>
-Built full-stack web applications using the MERN Stack (MongoDB, Express.js, React.js, and Node.js), integrated RESTful APIs, and developed responsive, scalable solutions while collaborating with Git and GitHub.
-</p>
-    </p>
-  </div>
-
-</section>
-
-<section id="projects" class="projects-clean">
-  <h2 class="section-title">My Projects</h2>
-  <div class="project-wrapper">
-
-    <div class="project-card">
-        <img src="assets/spotifyimage.png" alt="Weather App" style="width: 100%; height: auto; object-fit: cover;">
-      <div class="project-info">
-        <h3>Spotify Clone</h3>
-        <p>Responsive music player with dark UI and audio controls.</p>
-        <a href="https://virshaarif.github.io/Spotify/" class="btn" target="_blank">Live</a>
-        <a href="https://github.com/virshaarif/Spotify" class="btn-outline" target="_blank">Code</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-       <img src="assets/coffeebar.png" alt="Weather App" style="width: 100%; height: auto; object-fit: cover;">
-      <div class="project-info">
-        <h3>CoffeeBar Website</h3>
-        <p>Modern café landing page with scroll and animations.</p>
-        <a href="https://virshaarif.github.io/coffee-bar-website/" class="btn" target="_blank">Live</a>
-        <a href="https://github.com/virshaarif/coffee-bar-website" class="btn-outline" target="_blank">Code</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-     <img src="assets/image.png" alt="Weather App" style="width: 100%; height: auto; object-fit: cover;">
-      <div class="project-info">
-        <h3>Airplane Management System</h3>
-        <p>Track today’s flight performance, booking trends, and airport movement from one professional control panel.</p>
-        <a href="https://virshaarif.github.io/task_02_UDev/" class="btn" target="_blank">Live</a>
-        <a href="https://virshaarif.github.io/task_02_UDev/" class="btn-outline" target="_blank">Code</a>
-      </div>
-    </div>
-    <div class="project-card">
-        <img src="assets/trash.png" alt="Weather App" style="width: 100%; height: auto; object-fit: cover;">
-      <div class="project-info">
-        <h3>Trash Treasure</h3>
-        <p>A modern MERN web application designed to reduce waste by making item sharing simple and accessible.</p>
-        <a href="https://github.com/virshaarif/trash_treasure.git" class="btn" target="_blank">Live</a>
-        <a href="https://github.com/virshaarif/trash_treasure.git" class="btn-outline" target="_blank">Code</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-       <img src="assets/Corno.png" alt="Weather App" style="width: 100%; height: auto; object-fit: cover;">
-      <div class="project-info">
-        <h3>Corona App</h3>
-        <p>A Flutter-based COVID-19 Tracker that displays real-time global and country-wise statistics using REST APIs.</p>
-        <a href="https://github.com/virshaarif/Corona_App.git" class="btn" target="_blank">Live</a>
-        <a href="https://github.com/virshaarif/Corona_App.git" class="btn-outline" target="_blank">Code</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-     <img src="assets/store.jpeg" alt="Weather App" style="width: 100%; height: auto; object-fit: cover;">
-      <div class="project-info">
-        <h3>Cozy Wear App</h3>
-        <p>A modern Flutter e-commerce application featuring product browsing, categories, favorites, cart management, and a smooth, user-friendly shopping experience.</p>
-        <a href="https://github.com/virshaarif/e-commerce_app.git" class="btn" target="_blank">Live</a>
-        <a href="https://github.com/virshaarif/e-commerce_app.git" class="btn-outline" target="_blank">Code</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-<!-- ---services-- -->
- <section id="internship" class="experience-section">
-    <h2 class="section-title">Internships</h2>
-
-    <div class="experience-card">
-        <h3>Flutter Development Intern</h3>
-        <span>Airafy Digitals</span>
-
-        <p>
-            Worked on Flutter apps, Firebase integration,
-            REST APIs, MVVM architecture,
-            state management with Provider,
-            and responsive UI development.
-        </p>
-    </div>
-
-    <div class="experience-card">
-        <h3>Mern Stack Intern</h3>
-        <span>UDevs</span>
-
-        <p>
-            Developed responsive websites,
-            learned Git & GitHub workflow,
-            and completed real-world frontend tasks.
-        </p>
-    </div>
-
-</section>
-<section id="certificates" class="certificates-section">
-    <h2 class="section-title">Certificates</h2>
-
-    <div class="certificate-grid">
-
-        <div class="certificate-card">
-            <i class="fa-solid fa-award"></i>
-            <h3>Google Agile Essentials</h3>
-            <p>Google</p>
+          <p class="stack-line reveal"><span class="mono">stack</span> React · Node · MongoDB · Flutter · Dart · Firebase · REST</p>
+          <div class="hero-actions reveal">
+            <a class="btn-outline magnetic" href="#contact" data-cursor="hover">Let’s talk</a>
+            <div class="resume-split">
+              <a class="btn-ghost magnetic" href="flutter&amp;%20mern_resume.pdf" download data-cursor="hover">Full-stack CV</a>
+              <a class="btn-ghost magnetic" href="mern-resume-virsha.pdf" download data-cursor="hover">MERN</a>
+              <a class="btn-ghost magnetic" href="flutter-resume-virsha.pdf" download data-cursor="hover">Flutter</a>
+            </div>
+          </div>
         </div>
 
-        <div class="certificate-card">
-            <i class="fa-solid fa-award"></i>
-            <h3>Implement Scrum Framework</h3>
-            <p>Google</p>
+        <figure class="portrait-frame hero-frame" tabindex="0">
+          <div class="portrait-swap">
+            <img class="portrait-now" src="assets/Me.jpeg" alt="Virsha Arif, Software Engineer">
+            <img class="portrait-next" src="assets/Me_2.jpeg" alt="">
+          </div>
+        </figure>
+      </div>
+
+      <div class="scroll-hint" id="scroll-hint">
+        <span class="scroll-hint-ring"></span>
+        <span class="scroll-hint-label">Scroll to explore</span>
+      </div>
+    </section>
+
+    <section class="about chapter code-stage" id="about">
+      <div class="code-backdrop" aria-hidden="true"></div>
+      <div class="chapter-grid">
+        <div class="about-copy">
+          <p class="section-index reveal">[ 02 — about ]</p>
+          <h2 class="chapter-title reveal">Engineer first. Interfaces that ship, systems that hold.</h2>
+          <div class="about-body reveal">
+            <p>I am a Software Engineering student and Full-Stack Developer with a strong foundation in frontend and backend work. I build responsive web applications with React, Node.js, Express, and MongoDB — and cross-platform mobile apps with Flutter, Dart, Firebase, REST APIs, Provider, and MVVM.</p>
+            <p>I have shipped 20+ web and mobile products: clones, management systems, e-commerce, realtime chat, and company sites. I care about clean architecture, maintainable code, and UI that stays usable on every device.</p>
+            <p>Currently growing as a professional Full-Stack Web and Mobile Developer — contributing to real products, collaborating with teams, and writing code I would be willing to maintain.</p>
+          </div>
+          <dl class="about-stats">
+            <div class="reveal">
+              <dt>3.68</dt>
+              <dd>CGPA · University of Gujrat</dd>
+            </div>
+            <div class="reveal">
+              <dt>20+</dt>
+              <dd>Web &amp; mobile projects</dd>
+            </div>
+            <div class="reveal">
+              <dt>2.3k+</dt>
+              <dd>LinkedIn followers</dd>
+            </div>
+          </dl>
         </div>
 
-        <div class="certificate-card">
-            <i class="fa-solid fa-award"></i>
-            <h3>Flutter Development</h3>
-            <p>Airafy Digitals</p>
+        <div class="about-media reveal">
+          <figure class="portrait-frame about-frame" tabindex="0">
+            <div class="portrait-swap">
+              <img class="portrait-now" src="assets/Me_2.jpeg" alt="Virsha Arif in a beige blazer">
+              <img class="portrait-next" src="assets/Me.jpeg" alt="">
+            </div>
+          </figure>
+          <ul class="about-facts">
+            <li>
+              <span class="mono">Location</span>
+              Kharian, Punjab
+            </li>
+            <li>
+              <span class="mono">Focus</span>
+              MERN + Flutter
+            </li>
+            <li>
+              <span class="mono">Shipped</span>
+              20+ projects
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience chapter code-stage" id="experience">
+      <div class="code-backdrop" aria-hidden="true"></div>
+      <div class="chapter-head">
+        <p class="section-index reveal">[ 03 — experience ]</p>
+        <h2 class="chapter-title reveal">Where the code runs</h2>
+        <p class="chapter-lead reveal">Internships, product work, and independent shipping across web and mobile.</p>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline-item tilt-card reveal" data-cursor="hover">
+          <div class="timeline-meta">
+            <span class="mono">Jul 2026 — Present</span>
+            <span class="pill">Internship · Remote</span>
+          </div>
+          <h3>Web Developer / Full-Stack Intern</h3>
+          <p class="timeline-org">U Devs</p>
+          <p>MERN interfaces and management systems in production-style internships. Recognized as Best Intern of the Month for consistency and delivery.</p>
+          <p class="timeline-tags">MERN · Dashboards · Git</p>
+        </li>
+        <li class="timeline-item tilt-card reveal" data-cursor="hover">
+          <div class="timeline-meta">
+            <span class="mono">Jun 2026 — Present</span>
+            <span class="pill">Part-time</span>
+          </div>
+          <h3>Flutter Developer Intern</h3>
+          <p class="timeline-org">Airafy Digitals</p>
+          <p>Cross-platform Flutter apps with Dart, REST APIs, Firebase, Provider, and MVVM — Figma-to-Flutter, responsive UI, Android Studio &amp; VS Code.</p>
+          <p class="timeline-tags">Flutter · Dart · Firebase · MVVM</p>
+        </li>
+        <li class="timeline-item tilt-card reveal" data-cursor="hover">
+          <div class="timeline-meta">
+            <span class="mono">Jan 2026 — Present</span>
+            <span class="pill">Part-time · Remote</span>
+          </div>
+          <h3>Full Stack Developer</h3>
+          <p class="timeline-org">Zyphora Sattar Tech Solutions Pvt Ltd</p>
+          <p>Full-stack product work remotely from Pakistan — web applications, APIs, and maintainable frontend architecture.</p>
+          <p class="timeline-tags">Full stack · Remote</p>
+        </li>
+        <li class="timeline-item tilt-card reveal" data-cursor="hover">
+          <div class="timeline-meta">
+            <span class="mono">Independent</span>
+            <span class="pill">Self-employed</span>
+          </div>
+          <h3>Independent Flutter &amp; Full-Stack Developer</h3>
+          <p class="timeline-org">20+ shipped applications</p>
+          <p>Designed and deployed MERN apps with React and Tailwind, plus Flutter products with Firebase and REST. Version control and collaboration on GitHub.</p>
+          <p class="timeline-tags">React · Tailwind · Node · Flutter</p>
+        </li>
+        <li class="timeline-item tilt-card reveal" data-cursor="hover">
+          <div class="timeline-meta">
+            <span class="mono">Sep 2025 — Jun 2026</span>
+            <span class="pill">Leadership</span>
+          </div>
+          <h3>Information Secretary</h3>
+          <p class="timeline-org">University of Gujrat · Software Engineering</p>
+          <p>Coordinated department communication, academic updates, and student engagement.</p>
+          <p class="timeline-tags">Leadership · Team management</p>
+        </li>
+        <li class="timeline-item tilt-card reveal" data-cursor="hover">
+          <div class="timeline-meta">
+            <span class="mono">Jul 2025 — Aug 2025</span>
+            <span class="pill">Freelance</span>
+          </div>
+          <h3>Shopify Developer</h3>
+          <p class="timeline-org">Independent · Kharian</p>
+          <p>Theme customization, Liquid sections, and store setup.</p>
+          <p class="timeline-tags">Shopify · Liquid</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="work chapter code-stage" id="work">
+      <div class="code-backdrop" aria-hidden="true"></div>
+      <div class="chapter-head">
+        <p class="section-index reveal">[ 04 — selected work ]</p>
+        <h2 class="chapter-title reveal">Systems I’ve built</h2>
+        <p class="chapter-lead reveal">Web platforms, Flutter apps, and intern deliverables — from warehouse dashboards to realtime chat.</p>
+      </div>
+
+      <article class="featured-work reveal">
+        <div class="featured-copy">
+          <p class="mono featured-index">Featured · U Devs</p>
+          <h3>Amazon Warehouse Store Management</h3>
+          <p>Full warehouse frontend: auth, analytics dashboard, products, stock in/out, orders, P&amp;L, wastage, and settings. HTML, CSS, Bootstrap 5, JavaScript.</p>
+          <ul class="chip-list">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Bootstrap 5</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+        <div class="featured-visual">
+          <img src="assets/warehouse.png" alt="Warehouse management dashboard">
+        </div>
+      </article>
+
+      <div class="work-grid">
+        <article class="work-card tilt-card reveal" data-cursor="hover">
+          <div class="work-media">
+            <img src="assets/image.png" alt="Airplane Management System">
+          </div>
+          <div class="work-info">
+            <h3>Airplane Management System</h3>
+            <p>Operations UI: dashboard, tickets, departures, arrivals.</p>
+            <div class="work-links">
+              <a href="https://virshaarif.github.io/task_02_UDev/" target="_blank" rel="noopener">Live</a>
+            </div>
+          </div>
+        </article>
+        <article class="work-card tilt-card reveal" data-cursor="hover">
+          <div class="work-media">
+            <img src="assets/spotifyimage.png" alt="Spotify clone">
+          </div>
+          <div class="work-info">
+            <h3>Spotify Clone</h3>
+            <p>Music player with dark UI and audio controls.</p>
+            <div class="work-links">
+              <a href="https://virshaarif.github.io/Spotify/" target="_blank" rel="noopener">Live</a>
+              <a href="https://github.com/virshaarif/Spotify" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </article>
+        <article class="work-card tilt-card reveal" data-cursor="hover">
+          <div class="work-media">
+            <img src="assets/Corno.png" alt="COVID-19 Tracker">
+          </div>
+          <div class="work-info">
+            <h3>COVID-19 Tracker</h3>
+            <p>Flutter + REST: live stats, search, shimmer, charts.</p>
+            <div class="work-links">
+              <a href="https://github.com/virshaarif/Corona_App.git" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </article>
+        <article class="work-card tilt-card reveal" data-cursor="hover">
+          <div class="work-media">
+            <img src="assets/store.jpeg" alt="E-commerce Flutter app">
+          </div>
+          <div class="work-info">
+            <h3>E-Commerce App</h3>
+            <p>Flutter shopping flow: browse, categories, favorites, cart.</p>
+            <div class="work-links">
+              <a href="https://github.com/virshaarif/e-commerce_app.git" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </article>
+        <article class="work-card tilt-card reveal" data-cursor="hover">
+          <div class="work-media">
+            <img src="assets/trash.png" alt="Trash Treasure">
+          </div>
+          <div class="work-info">
+            <h3>Treasure Hunt / Trash Treasure</h3>
+            <p>MERN app for sharing items and reducing waste.</p>
+            <div class="work-links">
+              <a href="https://github.com/virshaarif/trash_treasure.git" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </article>
+        <article class="work-card tilt-card reveal" data-cursor="hover">
+          <div class="work-media">
+            <img src="assets/coffeebar.png" alt="CoffeeBar website">
+          </div>
+          <div class="work-info">
+            <h3>CoffeeBar</h3>
+            <p>Café landing with scroll sections and responsive layout.</p>
+            <div class="work-links">
+              <a href="https://virshaarif.github.io/coffee-bar-website/" target="_blank" rel="noopener">Live</a>
+            </div>
+          </div>
+        </article>
+        <article class="work-card tilt-card reveal">
+          <div class="work-media">
+            <img src="assets/chat-app.png" alt="Realtime chat application">
+          </div>
+          <div class="work-info">
+            <h3>Chat App</h3>
+            <p>Auth, online status, typing indicators, WebSocket + Firebase.</p>
+            <p class="work-stack">Flutter · Dart · Firebase</p>
+          </div>
+        </article>
+        <article class="work-card tilt-card reveal">
+          <div class="work-media">
+            <img src="assets/bakes-by-mini.png" alt="Bakes by Mini bakery website">
+          </div>
+          <div class="work-info">
+            <h3>Bakes by Mini</h3>
+            <p>Bakery storefront: product showcase, mobile-first UI.</p>
+            <p class="work-stack">HTML · CSS · JavaScript</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="also-shipped reveal">
+        <p class="mono">also shipped</p>
+        <ul>
+          <li>Netflix Clone</li>
+          <li>Twitter (X) Clone</li>
+          <li>Weather App</li>
+          <li>University Transport System</li>
+          <li>Shelogix Company Site</li>
+          <li>Wanderlust Travel Planner</li>
+          <li>Cosmetic App / Website</li>
+          <li>Blinkit Clone</li>
+          <li>WhatsApp UI Clone</li>
+          <li>Live Streaming App</li>
+          <li>Social Media App</li>
+          <li>Lottery App</li>
+          <li>Auth App</li>
+          <li>Calculator App</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="capabilities chapter code-stage" id="capabilities">
+      <div class="code-backdrop" aria-hidden="true"></div>
+      <div class="chapter-head">
+        <p class="section-index reveal">[ 05 — stack ]</p>
+        <h2 class="chapter-title reveal">Languages, tools, architecture</h2>
+        <p class="chapter-lead reveal">A dual practice: MERN on the web, Flutter on mobile — one engineer across both.</p>
+      </div>
+
+      <div class="skill-grid">
+        <article class="skill-card tilt-card reveal" data-cursor="hover">
+          <span class="mono">01</span>
+          <h3>MERN Stack</h3>
+          <p>MongoDB, Express, React, Node — REST APIs, Tailwind UI, Git workflows.</p>
+        </article>
+        <article class="skill-card tilt-card reveal" data-cursor="hover">
+          <span class="mono">02</span>
+          <h3>Flutter &amp; Dart</h3>
+          <p>MVVM, Provider, Figma-to-Flutter, responsive UI, Android Studio.</p>
+        </article>
+        <article class="skill-card tilt-card reveal" data-cursor="hover">
+          <span class="mono">03</span>
+          <h3>Firebase</h3>
+          <p>Auth, Firestore, Realtime Database, Storage, messaging.</p>
+        </article>
+        <article class="skill-card tilt-card reveal" data-cursor="hover">
+          <span class="mono">04</span>
+          <h3>REST APIs</h3>
+          <p>JSON, async flows, search, charts, backend services in Node.</p>
+        </article>
+        <article class="skill-card tilt-card reveal" data-cursor="hover">
+          <span class="mono">05</span>
+          <h3>Frontend</h3>
+          <p>HTML5, CSS3, JavaScript ES6+, React, Tailwind, Shopify Liquid.</p>
+        </article>
+        <article class="skill-card tilt-card reveal" data-cursor="hover">
+          <span class="mono">06</span>
+          <h3>Practice</h3>
+          <p>Git &amp; GitHub, VS Code, clean architecture, software testing.</p>
+        </article>
+      </div>
+
+      <div class="services-block" id="services">
+        <p class="section-index reveal">[ 06 — hire ]</p>
+        <h3 class="subhead reveal">What you can brief me on</h3>
+        <ul class="service-list">
+          <li class="tilt-card reveal" data-cursor="hover">Web Development</li>
+          <li class="tilt-card reveal" data-cursor="hover">Mobile Application Development</li>
+          <li class="tilt-card reveal" data-cursor="hover">Custom Software Development</li>
+          <li class="tilt-card reveal" data-cursor="hover">Application Development</li>
+          <li class="tilt-card reveal" data-cursor="hover">Web Design</li>
+          <li class="tilt-card reveal" data-cursor="hover">Database Development</li>
+          <li class="tilt-card reveal" data-cursor="hover">Software Testing</li>
+          <li class="tilt-card reveal" data-cursor="hover">Data Entry</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="recognition chapter code-stage" id="recognition">
+      <div class="code-backdrop" aria-hidden="true"></div>
+      <div class="chapter-head">
+        <p class="section-index reveal">[ 07 — record ]</p>
+        <h2 class="chapter-title reveal">Education &amp; credentials</h2>
+      </div>
+
+      <div class="record-grid">
+        <article class="record-card tilt-card reveal" data-cursor="hover">
+          <p class="mono">Education</p>
+          <h3>University of Gujrat</h3>
+          <p>BS Software Engineering<br>Aug 2023 — Present · 3.68 / 4.0</p>
+        </article>
+        <article class="record-card tilt-card reveal" data-cursor="hover">
+          <p class="mono">Education</p>
+          <h3>Royal National College</h3>
+          <p>ICS · Jun 2021 — Mar 2023<br>898 / 1100 · Kharian</p>
+        </article>
+        <article class="record-card tilt-card reveal" data-cursor="hover">
+          <p class="mono">Education</p>
+          <h3>Govt Girls No. 1 High School</h3>
+          <p>Matriculation, Science Group<br>1085 / 1100 · Kharian</p>
+        </article>
+        <article class="record-card tilt-card reveal" data-cursor="hover">
+          <p class="mono">Recognition</p>
+          <h3>Best Intern of the Month</h3>
+          <p>U Devs SMC (Pvt.) Ltd. — Full Stack Intern.</p>
+        </article>
+        <article class="record-card tilt-card reveal" data-cursor="hover">
+          <p class="mono">Certificate</p>
+          <h3>Project Management &amp; Data Analytics</h3>
+          <p>Google &amp; Coursera · Foundations track.</p>
+        </article>
+        <article class="record-card tilt-card reveal" data-cursor="hover">
+          <p class="mono">Certificate</p>
+          <h3>Google Agile Essentials</h3>
+          <p>Coursera · Scrum and collaborative delivery.</p>
+        </article>
+        <article class="record-card tilt-card reveal" data-cursor="hover">
+          <p class="mono">Certificate</p>
+          <h3>Foundations of Data Science</h3>
+          <p>Google · Jul 2026 · 1P7DETFD3HTU</p>
+        </article>
+        <article class="record-card tilt-card reveal" data-cursor="hover">
+          <p class="mono">Languages</p>
+          <h3>English &amp; Urdu</h3>
+          <p>Professional working proficiency in both.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact chapter code-stage" id="contact">
+      <div class="code-backdrop" aria-hidden="true"></div>
+      <div class="contact-layout">
+        <div class="contact-copy">
+          <p class="section-index reveal">[ 08 — contact ]</p>
+          <h2 class="chapter-title reveal">Open a brief.</h2>
+          <p class="chapter-lead reveal">Available on-site, hybrid, or remote. Product, internship, or freelance — I reply with a clear next step.</p>
+          <ul class="contact-details">
+            <li>
+              <span class="mono">Email</span>
+              <a href="mailto:virshaarif59@gmail.com" data-cursor="hover">virshaarif59@gmail.com</a>
+            </li>
+            <li>
+              <span class="mono">Phone</span>
+              <a href="tel:+923267938891" data-cursor="hover">+92 326 7938891</a>
+            </li>
+            <li>
+              <span class="mono">GitHub</span>
+              <a href="https://github.com/virshaarif" target="_blank" rel="noopener" data-cursor="hover">github.com/virshaarif</a>
+            </li>
+            <li>
+              <span class="mono">LinkedIn</span>
+              <a href="https://www.linkedin.com/in/virsha-arif-183285323/" target="_blank" rel="noopener" data-cursor="hover">virsha-arif</a>
+            </li>
+          </ul>
         </div>
 
+        <form class="contact-form reveal" id="contact-form" action="contact.php" method="post" novalidate>
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required minlength="3" placeholder="Your name">
+            <span class="field-error" data-for="name"></span>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@company.com">
+            <span class="field-error" data-for="email"></span>
+          </div>
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" required minlength="3" placeholder="Role, product, or brief">
+            <span class="field-error" data-for="subject"></span>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required minlength="12" placeholder="Stack, timeline, and what to build."></textarea>
+            <span class="field-error" data-for="message"></span>
+          </div>
+          <button class="btn-outline magnetic" type="submit" data-cursor="hover" id="contact-submit">
+            Send message
+          </button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="brand brand-footer" href="#top" data-cursor="hover" aria-label="Virsha home">
+        <img class="brand-mark" src="assets/logo-mark.png" width="40" height="40" alt="Virsha Arif">
+        <span class="brand-name">Virsha</span>
+      </a>
+      <p class="footer-copy">© 2026 · Software Engineer · MERN &amp; Flutter</p>
+      <ul class="socials">
+        <li><a href="https://github.com/virshaarif" target="_blank" rel="noopener" data-cursor="hover">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/virsha-arif-183285323/" target="_blank" rel="noopener" data-cursor="hover">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/virsha_rajpoot789/" target="_blank" rel="noopener" data-cursor="hover">Instagram</a></li>
+        <li><a href="https://x.com/VirshaArif" target="_blank" rel="noopener" data-cursor="hover">X</a></li>
+      </ul>
     </div>
-</section>
-<section id="services" class="clean-services">
-  <h2 class="section-title">Services I Offer</h2>
-  <div class="services-grid">
+  </footer>
 
-    <div class="service-box">
-  <h3>📱 Flutter App Development</h3>
-  <ul>
-    <li>Cross-Platform Mobile Apps</li>
-    <li>Responsive & Modern UI</li>
-    <li>Provider & MVVM Architecture</li>
-  </ul>
-</div>
-
-<div class="service-box">
-  <h3>💻 MERN Stack Development</h3>
-  <ul>
-    <li>MongoDB, Express.js, React & Node.js</li>
-    <li>Full-Stack Web Applications</li>
-    <li>REST API Development & Integration</li>
-  </ul>
-</div>
-
-<div class="service-box">
-  <h3>🔥 Firebase Services</h3>
-  <ul>
-    <li>Firebase Authentication</li>
-    <li>Cloud Firestore & Storage</li>
-    <li>Push Notifications & Backend Integration</li>
-  </ul>
-</div>
-
-<div class="service-box">
-  <h3>🛒 Shopify Development</h3>
-  <ul>
-    <li>Theme Customization</li>
-    <li>Custom Sections & Liquid</li>
-    <li>Store Setup & Optimization</li>
-  </ul>
-</div>
-
-<div class="service-box">
-  <h3>🌐 Frontend Development</h3>
-  <ul>
-    <li>HTML5, CSS3 & JavaScript (ES6+)</li>
-    <li>Responsive & Mobile-First Design</li>
-    <li>Interactive User Interfaces</li>
-  </ul>
-</div>
-
-<div class="service-box">
-  <h3>🔧 Version Control & APIs</h3>
-  <ul>
-    <li>Git & GitHub Workflow</li>
-    <li>REST API Integration</li>
-    <li>Deployment & Performance Optimization</li>
-  </ul>
-</div>
-  </div>
-</section>
-
-<!-- ------contact form ------- -->
-<section id="contact" class="contact-section">
-  <h2 class="section-title">Let's Connect</h2>
-  <p class="section-subtitle">I’m always open to discussing web projects, freelance work.</p>
- <form class="contact-form " id="contactForm" onsubmit="return validateForm()" name="submit-to-google-sheet">
-
-    <div class="form-group">
-      <input type="text" name="name" placeholder="Your Name" required>
-    </div>
-    <div class="form-group">
-      <input type="email" name="email" placeholder="Your Email" required>
-    </div>
-    <div class="form-group">
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    </div>
-    <button type="submit" class="btn">Send Message</button>
-  </form>
-</section>
-
- <!-- footer section -->
-
-<footer class="footer-section" id="footer">
-  <div class="section-content"> 
-   <p class="copyright-text">
-  © 2026 Designed & Developed by Virsha Arif.
-</p>
-   <div class="social-link-list">
-  <a href="https://www.linkedin.com/in/virsha-arif-183285323/" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-  <a href="https://www.instagram.com/virsha_rajpoot789/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-  <a href="https://x.com/VirshaArif" class="social-link" target="_blank"><i class="fab fa-x-twitter"></i></a>
-  <a href="https://github.com/virshaarif" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
-</div>
-   <p class="policy-text">
-  <i class="fas fa-envelope "></i> 
-  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=virshaarif59@gmail.com" class="policy-link" target="_blank">
-    virshaarif59@gmail.com
-  </a>
-</p>
-  </div>
-</footer>
-  <script src="script.js"></script>
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-relevant="additions"></div>
+  <script src="script.js" defer></script>
 </body>
 </html>
-

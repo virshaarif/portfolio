@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Virsha Arif">
+  <rect width="64" height="64" rx="12" fill="#07090c"/>
+  <circle cx="32" cy="32" r="27" fill="none" stroke="#7dd3fc" stroke-width="1.4"/>
+  <path fill="#f4f7fb" d="M12.5 16.5 L31.2 52.5 L36.4 42.2 L21.8 16.5 Z"/>
+  <path fill="#f4f7fb" d="M31.2 52.5 L50.8 16.5 L45.2 16.5 L29.4 46.6 Z"/>
+  <path fill="#7dd3fc" d="M33.2 34.2 L44.6 34.2 L42.4 38.6 L31.1 38.6 Z"/>
+</svg>
